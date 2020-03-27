@@ -15,8 +15,7 @@ class Employment(models.Model):
     author = models.CharField(max_length=100, default="Admin", null=False)
     author_email = models.CharField(max_length=100, default="N.A.", null=False)
     eligibility = models.TextField(null=False, default="N.A.")
-    start_date = models.DateTimeField(null=True)
-    last_date = models.DateTimeField(null=True)
+    last_date = models.DateField(null=True)
     website = models.CharField(max_length=100, null=True)
     type = [(1, 'JOB'),(2, 'INTERNSHIP')]
     post_type = models.IntegerField(choices=type, default=1)

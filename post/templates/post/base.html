@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'post/main.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Oswald:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300|Poppins&display=swap" rel="stylesheet">
     <script src="https://cdn.tiny.cloud/1/ud1hgjwhi4yzsomd6xr2y7mddo3om4lpeitndwouu8lndw9g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
       tinymce.init({selector:'textarea'});
@@ -83,13 +84,14 @@
       $( function() {
         $( "#datepicker" ).datepicker({
           changeMonth: true,
-          changeYear: true
+          changeYear: true,
+          dateFormat: "yy-mm-dd"
         });
       } );
       </script>
       <script>
   $( function() {
-    var dateFormat = "mm/dd/yy",
+    var dateFormat = "yyyy/mm/dd",
       from = $( "#from" )
         .datepicker({
           defaultDate: "+1w",

@@ -16,7 +16,6 @@
         {% endif %}
         <div class="row">
           <a href="{% url 'employ-post-create'%}">Create New</a>
-          <script async src="https://cse.google.com/cse.js?cx=009788653011454125862:nwy48iuc4ai"></script>
           <div class="gcse-search"></div>
           <div class="col-md-12 text-center">
             <ul class="nav nav-pills center-pills mb-3 p-2" id="pills-tab" role="tablist">
@@ -45,25 +44,44 @@
                       {% if post.post_type == 1 %}
                       <div class="col mb-3">
                       <!-- Card -->
-                      <div class="card">
+                      <div class="card home-card">
                         <!--Card image-->
                         <div class="view overlay">
                           <img class="card-img-top pt-4" src="{{post.company_logo_link}}"
-                          alt="Card image cap"><hr>
+                          alt="Card image cap">
                           <a href="{%url 'job-post' post.id%}">
                             <div class="mask rgba-white-slight"></div>
                           </a>
                         </div>
                         <!--Card content-->
-                        <div class="card-body">
+                        <div class="card-body home-cards">
                           <!--Title-->
-                          <h4 class="card-title">{{post.salary|slice:":26"}}
-                            {%if post.salary|length > 26 %}
+                          <a href="{%url 'job-post' post.id%}"><h4 class="card-title">{{post.role|slice:":26"|title}}
+                            {%if post.role|length > 26 %}
                               ...
                             {%endif%}
-                          </h4>
+                          </h4></a>
                           <!--Text-->
-                          <p class="card-text">{{post.desc|slice:":120" }}...</p>
+                            <table class="table table-sm card-text">
+                              <thead>
+
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td scope="col">Company</td>
+                                  <td scope="col">{{post.company_name}}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Salary</th>
+                                  <td>{{post.salary}}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Last Date</th>
+                                  <td>{{post.last_date}}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+
                             <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
                             <a class="btn btn-primary btn-sm" href="{% url 'job-post' post.id %}" role="button">Read More</a>
                           </div>
