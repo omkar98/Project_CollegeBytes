@@ -25,7 +25,7 @@ SECRET_KEY = ')x3hv5*wwl8jd0o#qs*&0**6x_tlmy&6h^_d8zssce4!q7713i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['collegebyte.herokuapp.com']
+ALLOWED_HOSTS = ['collegebyte.herokuapp.com', 'localhost']
 
 # Application definition
 
