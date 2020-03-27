@@ -1,0 +1,44 @@
+{% extends "post/base.html" %}
+{% block content %}
+<main role="main" class="container ">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="container-fluid pt-4">
+        <h3>Look all the blog</h3>
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{message}}
+          </div>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <ul class="nav nav-pills center-pills mb-3 p-2" id="pills-tab" role="tablist">
+              <li class="nav-item home-pill">
+                <a class="nav-link pills-text active " id="pills-jobs-tab" data-toggle="pill" href="#pills-jobs" role="tab"
+                aria-controls="pills-jobs" aria-selected="true">Jobs<span class="badge badge-danger ml-2">9</span></a>
+              </li>
+              <li class="nav-item home-pill">
+                <a class="nav-link pills-text" id="pills-hackathons-tab" data-toggle="pill" href="#pills-hackathons" role="tab"
+                aria-controls="pills-hackathons" aria-selected="false">Hackathons<span class="badge badge-danger ml-2">7</span></a>
+              </li>
+              <li class="nav-item home-pill">
+                <a class="nav-link pills-text" id="pills-internships-tab" data-toggle="pill" href="#pills-internships" role="tab"
+                aria-controls="pills-internships" aria-selected="false">Internships<span class="badge badge-danger ml-2">4</span></a>
+              </li>
+              <li class="nav-item home-pill">
+                <a class="nav-link pills-text" id="pills-others-tab" data-toggle="pill" href="#pills-others" role="tab"
+                aria-controls="pills-others" aria-selected="false">Others<span class="badge badge-danger ml-2">5</span></a>
+              </li>
+            </ul>
+
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}

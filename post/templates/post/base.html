@@ -1,0 +1,131 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'post/main.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tiny.cloud/1/ud1hgjwhi4yzsomd6xr2y7mddo3om4lpeitndwouu8lndw9g/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({selector:'textarea'});
+    </script>
+    <meta charset="utf-8">
+  <!-- <script src="https://code.jquery.com/jquery-1"></script> -->
+    <title>Home</title>
+   </head>
+   <body>
+     <!--Navbar-->
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark default-color">
+        <a class="navbar-brand" href="#">CollegeBytes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+          aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><b>Home</b>
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><b>EXPERIENCES</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><b>BLOG</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><b>STUDENTS</b></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"><b>SHARE</b></a>
+              <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Share an Event</a>
+                <a class="dropdown-item" href="#">Share an Experience</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><b>CONTACT US</b></a>
+            </li>
+          </ul>
+          <form class="form-inline">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <form class="form-inline ml-auto">
+                <div class="md-form my-0">
+                  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </div>
+                <button href="#!" class="btn btn-outline-white btn-md btn-sm" type="submit"><i class="fas fa-search mr-1"></i></button>
+              </form>
+          </div>
+          </form>
+        </div>
+      </nav>
+    <br>
+  {% block content %}{% endblock %}
+
+      <footer class="page-footer font-small blue">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+          <a href="https://mdbootstrap.com/education/bootstrap/"> CollegeBytes | Designed with love and passion by Omkar Deshpande and Abhishek Bagate</a>
+        </div>
+        <!-- Copyright -->
+
+      </footer>
+
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+      $( function() {
+        $( "#datepicker" ).datepicker({
+          changeMonth: true,
+          changeYear: true
+        });
+      } );
+      </script>
+      <script>
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#from" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+
+      return date;
+    }
+  } );
+
+  </script>
+
+
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js"></script>
+  </body>
+</html>

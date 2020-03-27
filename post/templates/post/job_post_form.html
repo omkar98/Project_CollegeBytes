@@ -1,0 +1,73 @@
+{% extends "post/base.html" %}
+{% block content %}
+<main role="main" class="container ">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="container-fluid p-5">
+        <div class="z-depth-2 p-5">
+          <h2>Job/Internship Registration Form</h2><hr>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="typeOfJobPost">Type<span class="required-form">*</span></label>
+              <select class="browser-default custom-select" name="job_type" required>
+                <option value="" selected>Please select the type of Opportunity</option>
+                <option value="1">Job Opportunity</option>
+                <option value="2">Internship Opportunity</option>
+              </select>
+              <div class="invalid-feedback">Please Select Valid </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="company_name">Company or Industry Name<span class="required-form">*</span> </label>
+                <input name="company_name" type="text" class="form-control  mb-4" placeholder="Ex: Infosys or Capgemini" required>
+              </div>
+              <div class="col-md-6">
+                <label for="role">Role<span class="required-form">*</span></label>
+                <input name="role" type="text" class="form-control" placeholder="Ex: Java Software Developer" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="role">Salary/Stipend<span class="required-form">*</span></label>
+                <input name="salary" type="text"  class="form-control  mb-4" placeholder="Ex: 3-4 LPA or 3.6 LPA or 30000/month etc." required>
+              </div>
+              <div class="col-md-6">
+                <label for="openings">Number of openings</label>
+                <input name="openings" type="number" class="form-control  mb-4" placeholder="Ex: 5">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="author">Your Name<span class="required-form">*</span></label>
+                <input name="author" type="text" class="form-control  mb-4" placeholder="Please enter your name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="author_email">Your Email ID<span class="required-form">*</span></label>
+                <input name="author_email" type="email" class="form-control  mb-4" placeholder="Please enter your email-id" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="website">Company/Job Post Website (for reference)<span class="required-form">*</span></label> -->
+                <input name="website" type="url" class="form-control  mb-4" placeholder="Please enter the job post link for reference" required>
+                <label for="desc">Description of the Post</label>
+                <textarea name="desc"></textarea><br>
+                <label for="eligibility">Eligibility <span class="required-form">(SKIP - If you have already mentioned it above)</span></label>
+                <textarea name="eligibility"></textarea>
+              </div>
+            </div><br>
+            <p>Last Date to Apply for the post: <input type="text" name="date" id="datepicker"></p>
+            <button class="btn btn-info btn-block my-2" type="submit">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+
+{% endblock content %}
