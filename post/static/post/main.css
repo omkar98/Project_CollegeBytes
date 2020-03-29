@@ -19,7 +19,11 @@ body {
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: #fff !important;
 }
-
+.comments {
+  background: #696969;
+  padding: 20px;
+  color:black;
+}
 .home-pill{
   border-top: 1px solid #C7CCCE;
   border-bottom: 1px solid #C7CCCE;
@@ -45,8 +49,9 @@ body {
 .title-font-details{
   font-family: 'Oswald', sans-serif;
   color: black;
+  font-size: 20px;
   /* position: relative; */
-  top:50px;
+  /* top:50px; */
 }
 .jobDetails{
   background: white;
@@ -56,10 +61,7 @@ body {
   max-width: 150px !important;
   height: 100px !important;
   display: inline !important;
-  /* height: 100px;
-  /* width: 90%; */
-  /* width: 100px;;
-  display: inline !important; */
+
 }
 .required-form{
   color: red;
@@ -72,4 +74,7 @@ body {
 }
 .home-card:hover{
   border-top: 5px solid #4285F4;
+}
+.last_date_job_post{
+  background: #ffcb07;
 }

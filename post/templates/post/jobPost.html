@@ -1,10 +1,11 @@
 {% extends "post/base.html" %}
 {% block content %}
+<!-- <p>hey <a href="">Check</a></p> -->
     <div class="container-fluid p-4 headerColor">
       <div class="row">
-        <div class="col-md-6 pt-2 text-left"><h2 class="title-font"><b>CollegeBytes</b></h2>
+        <div class="col-6 pt-2 text-left"><h2 class="title-font"><b>CollegeBytes</b></h2>
         </div>
-        <div class="col-md-6 pr-5 text-right">
+        <div class="col-6 pr-1 text-right">
           <button type="button" class="btn btn-light">
                 <span class="title-font-button"><b>View all Posts</b></span>
           </button>
@@ -13,68 +14,56 @@
     </div>
     <div class="container-fluid p-3 jobPostContent">
       <div class="row pt-2">
-        <div class="col-md-3 p-3 text-left title-font-details">
-          <h2><b>{{object.title}}</b></h2>
-          <span>{{object.author}}</span><br>
-          <span>{{object.experience}} Years Exp.</span><br>
-          <span>{{object.ctc}}</span><br>
-          <a href={{object.website}}>Visit Websit</a>
-        </div>
-        <div class="col-md-9 p-4">
-          <div class="jobDetails z-depth-1">
-            <p class="float-right p-2 default-color title-font"><i class="fa fa-eye" aria-hidden="true"></i>
-  145 Views</p>
-            <div class="job-description-v2 p-4"><div class="text-content">
-            {{object.desc |safe }}
-              <p>HackerRank is a Y Combinator alumnus backed by tier one Silicon Valley VCs. We are a skills-based hiring platform that helps companies evaluate technical skills, better. We&rsquo;re driving a new paradigm shift by eliminating resumes and creating opportunities for hundreds of thousands of programmers worldwide. We have a community of 5M+ developers and 1,000+ customers across industries, and the best part is we are just getting started. Our customers - &nbsp;including VMware, Twitter, Capital One and many other Fortune 100 companies - rely on HackerRank to build strong engineering teams.</p>
-
-<p>We&#39;ve assembled an amazing team that&rsquo;s passionate about creating more opportunities for people by changing the way companies hire. We are ambitious, data-driven&nbsp;<a href="https://www.ted.com/talks/adam_grant_are_you_a_giver_or_a_taker">givers</a>, and we love delighting customers. If you&#39;re interested in scaling HackerRank by working with some of the largest companies in the world, let&rsquo;s talk.&nbsp;</p>
-
-<p><strong>WHAT YOU&rsquo;LL LOVE TO DO&hellip;</strong></p>
-
-<ul>
-	<li>Translate business requirements into technical specifications; communicate and get stakeholder buy in; iterate and refine</li>
-	<li>Develop a deep understanding of the personas we serve -- recruiters, hiring managers, leadership</li>
-	<li>Deliver high quality product experiences to these personas -- in a quality conscious manner, and on a regular and predictable schedule &mdash; A passion for quality and delivering well tested and testable solution</li>
-	<li>Design and implement REST APIs using Rails</li>
-	<li>Collaborate in a Agile environment</li>
-	<li>Review, prepare and present design/code to colleagues</li>
-	<li>Coordinating with extended development team and cross functional teams.</li>
-</ul>
-
-<p>&nbsp;<strong>WHAT YOU&rsquo;VE ALREADY DONE&hellip;</strong></p>
-
-<ul>
-	<li>Total of 4+ years with experience in design and implementation of APIs.</li>
-	<li>Strong coding, design, and architecture experience in any one programming language ecosystem (RoR, J2EE, Spring etc.,) is mandatory.</li>
-	<li>Building, maintaining, and debugging distributed, web-based applications.</li>
-	<li>Experience in building customer facing products is a big plus.</li>
-	<li>Understand scalability and performance challenges. Ability to identify and fix performance bottlenecks.</li>
-	<li>Building highly concurrent and low latency systems.</li>
-	<li>Experience in using various components of backend stack such as cache (Redis, Memcached), RDBMS, NoSQL DB, web server (Nginx, HAProxy), app server (Tomcat, Unicorn), CDN.</li>
-	<li>Need to have basic knowledge of web dev - HTTP headers, session management, cookies, etc.</li>
-</ul>
-
-<p><strong>GET EXCITED. Because you&#39;re about to have a huge impact.</strong><br />
-HackerRank is growing fast and we&#39;re having a great time working together as we build! We&#39;re a fun, friendly, passionate bunch. We&rsquo;re a team of teams and we&rsquo;re looking for more smiling faces to come join us! The position is full-time and based in the&nbsp;<a href="https://www.google.co.in/maps?safe=active&amp;rlz=1C5CHFA_enIN699IN700&amp;q=hackerrank+bangalore+office+address&amp;um=1&amp;ie=UTF-8&amp;sa=X&amp;ved=0ahUKEwixo-3CwO_VAhUETo8KHRSaD8AQ_AUICygC">heart of Bangalore.</a></p>
-
-<p><strong>PERKS &amp; BENEFITS. &ldquo;As if working alongside the smartest brains wasn&rsquo;t enough!&rdquo;</strong><br />
-We have a full package of competitive&nbsp;benefits and perks available for you and your dependents:</p>
-
-<ul>
-	<li>Insurance to all Employees (term life, personal accident, medical, gratuity) along with insurance to their dependents(medical).</li>
-	<li>Employee stock options, flexible work hours and time off.</li>
-	<li>Employee Reimbursements on gym, telephone, internet etc.</li>
-	<li>Our pantry is stocked with healthy snacks, fruits, Coffee and free catered lunch every day.</li>
-	<li>Ping pong, hoverboard, foosball, PS4 and many office celebrations like Mafia games, outings, movie evenings to name a few!</li>
-</ul>
-</div></div>
-
-
-
+        <div class="col-md-3 text-left ">
+          <div class="z-depth-0 p-3 title-font-details">
+            <h2><b>{{object.role}}</b></h2><hr>
+            <span>CTC: {{object.salary}}</span><br>
+            <span>Openings: {{object.openings}}</span><br>
+            <span>Last Date: {{object.last_date}}</span><br><hr>
+            <a href={{object.website}}>Visit Website <i class="fas fa-external-link-alt"></i></a>
+            <br><hr>
+            <span>Posted by {{object.author}}</span><br>
           </div>
+        </div>
+        <div class="col-md-9">
+          <div class="jobDetails z-depth-1">
+            <div class="row">
+              <div class="col-12">
+                <div class="last_date_job_post pl-4"><i class="fas fa-exclamation-circle"></i> Last Date to apply is <b>{{object.last_date}}</b>
+                <p class="float-right default-color title-font pr-4"><i class="fa fa-eye" aria-hidden="true"></i>
+                   {{object.views}} Views</p>
+                </div>
+              </div>
+            </div>
+            <div class="job-description-v2 pt-1 pr-4 pb-4 pl-4">
+              <div class="text-content">
+                <b><h4>Description</h4></b><hr>
+                  {{object.desc|safe }}<hr>
+               {% if object.eligibility %}
+               <b><h4>Eligibility</h4></b>
+                  {{object.eligibility| safe}}<hr>
+               {% endif %}
+              </div>
+            </div>
+          </div>
+          <div id="disqus_thread" class="comments">Disqus</div>
           <h1></h1>
         </div>
       </div>
+
     </div>
+    <script>
+    // var disqus_config = function () {
+    // this.page.url = {{object.get_absolute_url}};  // Replace PAGE_URL with your page's canonical URL variable
+    // this.page.identifier = {{object.id}}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    // };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://collegebytes.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 {% endblock content %}

@@ -29,6 +29,13 @@ class PostDetailView(DetailView):
     slug_url_kwarg = 'post_type'
     template_name = 'post/jobPost.html'    # <app>/<model>_<viewtype>.html
     # context_object_name = 'posts'
+    # post = Employment.objects.get(current.id)
+    def get_object(self):
+        obj = super().get_object()
+        # Record the last accessed date
+        obj.views+=1
+        obj.save()
+        return obj
 
 def newEmploymentPost(request):
     if request.method == 'POST':
