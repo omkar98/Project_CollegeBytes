@@ -28,5 +28,37 @@ class Employment(models.Model):
     def get_absolute_url(self):
         return reverse('job-post',args=[str(self.id)])
 
+class Hackathon(models.Model):
+    title = models.CharField(max_length=100, null=False, default="Not specified")#done
+    team_size = models.IntegerField(default=1)
+    start_date = models.DateField(null=False)
+    end_date = models.DateField(null=True)
+    desc = models.TextField(default="N.A", null=False)
+    eligibility = models.TextField(default="N.A", null=True)
+    date_posted = models.DateTimeField(default=timezone.now)
+    views = models.IntegerField(default=1)
+    organizer = models.CharField(max_length=100, null=False, default="N.A.")
+    website = models.TextField(max_length=200, null=True)
+    author = models.CharField(max_length=100, default="N.A.", null=False)
+    author_email = models.CharField(max_length=100, default="N.A.", null=False)
+    organizer_logo = models.TextField(null=True)
+    status_type = [(1, 'APPROVE'), (2, 'KEEP AS DRAFT'), (3, 'REJECT')]
+    status = models.IntegerField(choices=status_type, default=2)
+    last_date = models.DateField(null=True)
+
+class OtherPost(models.Model):
+    title = models.CharField(max_length=100, null=False, default="Not specified")
+    desc = models.TextField(default="N.A", null=False)
+    eligibility = models.TextField(default="N.A", null=True)
+    date_posted = models.DateField(null=True)
+    views = models.IntegerField(default=1)
+    organizer = models.CharField(max_length=100, null=False, default="N.A.")
+    website = models.TextField(max_length=200, null=True)
+    author = models.CharField(max_length=100, default="N.A.", null=False)
+    author_email = models.CharField(max_length=100, default="N.A.", null=False)
+    organizer_logo = models.TextField(null=True)
+    status_type = [(1, 'APPROVE'), (2, 'KEEP AS DRAFT'), (3, 'REJECT')]
+    status = models.IntegerField(choices=status_type, default=2)
+
     # def __repr__(self):
     #     self.role

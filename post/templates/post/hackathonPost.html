@@ -1,0 +1,70 @@
+{% extends "post/base.html" %}
+{% block content %}
+<!-- <p>hey <a href="">Check</a></p> -->
+    <div class="container-fluid p-4 headerColor">
+      <div class="row">
+        <div class="col-6 pt-2 text-left"><h2 class="title-font"><b>CollegeBytes</b></h2>
+        </div>
+        <div class="col-6 pr-1 text-right">
+          <button type="button" class="btn btn-light">
+                <span class="title-font-button"><b>View all Posts</b></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid p-3 jobPostContent">
+      <div class="row pt-2">
+        <div class="col-md-3 text-left ">
+          <div class="z-depth-0 p-3 title-font-details">
+            <h2><b>{{object.role}}</b></h2><hr>
+            <span>CTC: {{object.salary}}</span><br>
+            <span>Openings: {{object.openings}}</span><br>
+            <span>Last Date: {{object.last_date}}</span><br><hr>
+            <a href={{object.website}}>Visit Website <i class="fas fa-external-link-alt"></i></a>
+            <br><hr>
+            <span>Posted by {{object.author}}</span><br>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="jobDetails z-depth-1">
+            <div class="row">
+              <div class="col-12">
+                <div class="last_date_job_post pl-4"><i class="fas fa-exclamation-circle"></i> Last Date to apply is <b>{{object.last_date}}</b>
+                <p class="float-right default-color title-font pr-4"><i class="fa fa-eye" aria-hidden="true"></i>
+                   {{object.views}} Views</p>
+                </div>
+              </div>
+            </div>
+            <div class="job-description-v2 pt-1 pr-4 pb-4 pl-4">
+              <div class="text-content">
+                <img src="{{object.organizer_logo}}" width="100%" height="100%">
+               <b><h4>Description</h4></b><hr>
+                  {{object.desc|safe }}<hr>
+               {% if object.eligibility %}
+               <b><h4>Eligibility</h4></b>
+                  {{object.eligibility| safe}}<hr>
+               {% endif %}
+              </div>
+            </div>
+          </div>
+          <div id="disqus_thread" class="comments">Disqus</div>
+          <h1></h1>
+        </div>
+      </div>
+
+    </div>
+    <script>
+    // var disqus_config = function () {
+    // this.page.url = {{object.get_absolute_url}};  // Replace PAGE_URL with your page's canonical URL variable
+    // this.page.identifier = {{object.id}}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    // };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://collegebytes.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{% endblock content %}

@@ -36,62 +36,165 @@
                 aria-controls="pills-others" aria-selected="false">Others<span class="badge badge-danger ml-2">5</span></a>
               </li>
             </ul>
-            <div class="tab-content pt-2 pl-1" id="pills-tabContent">
-              <div class="tab-pane fade show active" id="pills-jobs" role="tabpanel" aria-labelledby="pills-jobs-tab">
-                  <div class="row row-cols-1 row-cols-md-4 container">
-                    {% for post in posts %}
+              <div class="tab-content pt-2 pl-1" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-jobs" role="tabpanel" aria-labelledby="pills-jobs-tab">
+                  <hr>JOBS <hr>
+                    <div class="row row-cols-1 row-cols-md-4 container">
+                      {% for post in job_posts %}
+                        <div class="col mb-3">
+                        <!-- Card -->
+                        <div class="card home-card">
+                          <!--Card image-->
+                          <div class="view overlay">
+                            <img class="card-img-top pt-4" src="{{post.company_logo_link}}"
+                            alt="Card image cap">
+                            <a href="{%url 'job-post' post.id%}">
+                              <div class="mask rgba-white-slight"></div>
+                            </a>
+                          </div>
+                          <!--Card content-->
+                          <div class="card-body home-cards">
+                            <!--Title-->
+                            <a href="{%url 'job-post' post.id%}"><h4 class="card-title">{{post.role|slice:":26"|title}}
+                              {%if post.role|length > 26 %}
+                                ...
+                              {%endif%}
+                            </h4></a>
+                            <!--Text-->
+                              <table class="table table-sm card-text">
+                                <thead>
 
-                      {% if post.post_type == 1 %}
-                      <div class="col mb-3">
-                      <!-- Card -->
-                      <div class="card home-card">
-                        <!--Card image-->
-                        <div class="view overlay">
-                          <img class="card-img-top pt-4" src="{{post.company_logo_link}}"
-                          alt="Card image cap">
-                          <a href="{%url 'job-post' post.id%}">
-                            <div class="mask rgba-white-slight"></div>
-                          </a>
-                        </div>
-                        <!--Card content-->
-                        <div class="card-body home-cards">
-                          <!--Title-->
-                          <a href="{%url 'job-post' post.id%}"><h4 class="card-title">{{post.role|slice:":26"|title}}
-                            {%if post.role|length > 26 %}
-                              ...
-                            {%endif%}
-                          </h4></a>
-                          <!--Text-->
-                            <table class="table table-sm card-text">
-                              <thead>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td scope="col">Company</td>
+                                    <td scope="col">{{post.company_name}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Salary</th>
+                                    <td>{{post.salary}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Last Date</th>
+                                    <td>{{post.last_date}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
 
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td scope="col">Company</td>
-                                  <td scope="col">{{post.company_name}}</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">Salary</th>
-                                  <td>{{post.salary}}</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">Last Date</th>
-                                  <td>{{post.last_date}}</td>
-                                </tr>
-                              </tbody>
-                            </table>
-
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <a class="btn btn-primary btn-sm" href="{% url 'job-post' post.id %}" role="button">Read More</a>
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <a class="btn btn-primary btn-sm" href="{% url 'job-post' post.id %}" role="button">Read More</a>
+                            </div>
                           </div>
                         </div>
-                        <!-- Card -->
-                      </div>
-                      {%endif%}
-                    {%endfor%}
-                  </div>
+                        {%endfor%}
+                    </div>
                 </div>
+                <div class="tab-pane fade show active" id="pills-hackathons" role="tabpanel" aria-labelledby="pills-hackathons-tab">
+                  <hr>HACKATHONS<hr>
+                    <div class="row row-cols-1 row-cols-md-4 container">
+                      {% for post in hackathon_posts %}
+                        <div class="col mb-3">
+                        <!-- Card -->
+                        <div class="card home-card">
+                          <!--Card image-->
+                          <div class="view overlay">
+                            <img class="card-img-top pt-4" src="{{post.organizer_logo}}"
+                            alt="Card image cap">
+                            <a href="{%url 'hackathon-post' post.id%}">
+                              <div class="mask rgba-white-slight"></div>
+                            </a>
+                          </div>
+                          <!--Card content-->
+                          <div class="card-body home-cards">
+                            <!--Title-->
+                            <a href="{%url 'job-post' post.id%}"><h4 class="card-title">{{post.role|slice:":26"|title}}
+                              {%if post.role|length > 26 %}
+                                ...
+                              {%endif%}
+                            </h4></a>
+                            <!--Text-->
+                              <table class="table table-sm card-text">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td scope="col">Company</td>
+                                    <td scope="col">{{post.company_name}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Salary</th>
+                                    <td>{{post.salary}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Last Date</th>
+                                    <td>{{post.last_date}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <a class="btn btn-primary btn-sm" href="{% url 'job-post' post.id %}" role="button">Read More</a>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                        </div>
+                      {%endfor%}
+                    </div>
+                </div>
+                <div class="tab-pane fade show active" id="pills-internships" role="tabpanel" aria-labelledby="pills-internships-tab">
+                    <hr>INTERNSHIPS <hr>
+                    <div class="row row-cols-1 row-cols-md-4 container">
+                      {% for post in internship_posts %}
+                        <div class="col mb-3">
+                        <!-- Card -->
+                        <div class="card home-card">
+                          <!--Card image-->
+                          <div class="view overlay">
+                            <img class="card-img-top pt-4" src="{{post.company_logo_link}}"
+                            alt="Card image cap">
+                            <a href="{%url 'job-post' post.id%}">
+                              <div class="mask rgba-white-slight"></div>
+                            </a>
+                          </div>
+                          <!--Card content-->
+                          <div class="card-body home-cards">
+                            <!--Title-->
+                            <a href="{%url 'job-post' post.id%}"><h4 class="card-title">{{post.role|slice:":26"|title}}
+                              {%if post.role|length > 26 %}
+                                ...
+                              {%endif%}
+                            </h4></a>
+                            <!--Text-->
+                              <table class="table table-sm card-text">
+                                <thead>
+
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td scope="col">Company</td>
+                                    <td scope="col">{{post.company_name}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Salary</th>
+                                    <td>{{post.salary}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Last Date</th>
+                                    <td>{{post.last_date}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+
+                              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                              <a class="btn btn-primary btn-sm" href="{% url 'job-post' post.id %}" role="button">Read More</a>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+
               </div>
             </div>
           </div>

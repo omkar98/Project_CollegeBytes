@@ -1,0 +1,63 @@
+{% extends "post/base.html" %}
+{% block content %}
+<main role="main" class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pt-4 pb-4">
+        <div class="p-2">
+          <h2>New Hackathon Registration Form</h2><hr>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-6">
+                <label for="title">Title of Hackathon<span class="required-form">*</span> </label>
+                <input name="title" type="text" class="form-control  mb-4" placeholder="Ex: Smart India Hackathon" required>
+              </div>
+              <div class="col-md-6">
+                <label for="organizer">Organizer<span class="required-form">*</span> </label>
+                <input name="organizer" type="text" class="form-control  mb-4" placeholder="Ex: Government of India" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="website">Website (for reference)<span class="required-form">*</span></label>
+                <input name="website" type="url" class="form-control  mb-4" placeholder="www.sih.com" required>
+              </div>
+              <div class="col-md-6">
+                <label for="team_size">Team Size<span class="required-form">*</span></label>
+                <input name="team_size" type="number" class="form-control" placeholder="Ex: 6" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="author">Your Name<span class="required-form">*</span></label>
+                <input name="author" type="text" class="form-control  mb-4" placeholder="Please enter your name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="author_email">Your Email ID<span class="required-form">*</span></label>
+                <input name="author_email" type="email" class="form-control  mb-4" placeholder="Please enter your email-id" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="desc">Description of the Hackathon</label>
+                <textarea name="desc"></textarea><br>
+                <label for="eligibility">Eligibility <span class="required-form">(SKIP - If you have already mentioned it above)</span></label>
+                <textarea name="eligibility"></textarea>
+              </div>
+            </div><br>
+                <label for="from">From</label>
+                <input type="text" id="from" name="start_date" required>
+                <label for="to">To</label>
+                <input type="text" id="to" name="end_date" required>
+            <p>Last Date to Apply/Register: <input type="text" name="last_date" id="datepicker"></p>
+            <button class="btn btn-info btn-block my-2" type="submit">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</main>
+{% endblock content %}
