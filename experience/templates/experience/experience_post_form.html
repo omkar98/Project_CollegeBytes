@@ -1,0 +1,98 @@
+{% extends "post/base.html" %}
+{% block content %}
+<main role="main" class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pt-4 pb-4">
+        <div class="p-2">
+          <h2><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+            Share Your Experience Here!</h2><hr>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="experience_type_field">Experience Type<span class="required-form">*</span></label>
+              <select class="browser-default custom-select" name="experience_type_field" required>
+                <option value="" selected>Please select your experience type</option>
+                <option value="1">Job Interview Experience</option>
+                <option value="2">Internship Experience</option>
+                <option value="3">Hackathon Experience</option>
+                <option value="4">Other Experience</option>
+              </select>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="organization_name">Organization Name<span class="required-form">*</span> </label>
+                <input name="organization_name" type="text" class="form-control  mb-4" placeholder="Ex: Capgemini" required>
+              </div>
+              <div class="col-md-6">
+                <label for="organization_role">Role</label>
+                <input name="organization_role" type="text" class="form-control" placeholder="Ex: Systems Engineer">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="experience_title">Give a title to your Experience<span class="required-form">*</span> </label>
+                <input name="experience_title" type="text" class="form-control  mb-4" placeholder="Ex: Capgemini Job Interview Experience at Aurangabad" required>
+              </div>
+              <div class="col-md-6">
+                <label for="website">Website (for reference)</label>
+                <input name="website" type="url" class="form-control  mb-4" placeholder="www.capgemini.com">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="experience_desc">Add your Experience Description</label>
+                <textarea name="experience_desc"></textarea><br>
+                <label>Duration of Experience: <label>
+                <label for="from"> From</label>
+                <input type="text" id="from" name="experience_start_date" style="width:35% !important" required>
+                <label for="to"> To</label>
+                <input type="text" id="to" name="experience_end_date" style="width:35% !important" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="result_field">Result:<span class="required-form">*</span></label>
+                <select class="browser-default custom-select" name="result_field" required>
+                  <option value="" selected>Please select one</option>
+                  <option value="1">Accepted</option>
+                  <option value="2">Rejected</option>
+                  <option value="3">Not Declared Yet</option>
+                  <option value="4">None of these</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="experience_result_more">Result Remarks(Optional)</label>
+                <input name="experience_result_more" type="text" class="form-control  mb-4" placeholder="Our team was among Top 10 teams">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <label for="experience_recommendation">Any recommendations? (Website, Books etc)</label>
+                <textarea name="experience_recommendation"></textarea><br>
+              </div>
+            </div>
+            <div class="row about_author p-2" >
+              <div class="col-md-6">
+                <label for="author_name">Your Name<span class="required-form">*</span></label>
+                <input name="author_name" type="text" class="form-control  mb-4" placeholder="Please enter your name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="author_email">Your Email ID<span class="required-form">*</span></label>
+                <input name="author_email" type="email" class="form-control  mb-4" placeholder="Please enter your email-id" required>
+              </div>
+              <div class="col-md-12">
+                <label for="author_about">Describe yourself!</label>
+                <textarea name="author_about"></textarea><br>
+              </div>
+            </div>
+            <button class="btn btn-info btn-block my-2" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</main>
+{% endblock content %}

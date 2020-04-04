@@ -29,7 +29,9 @@ ALLOWED_HOSTS = ['collegebyte.herokuapp.com', 'localhost']
 
 # Application definition
 
+
 INSTALLED_APPS = [
+    'experience.apps.ExperienceConfig',
     'blog.apps.BlogConfig',
     'post.apps.PostConfig',
     'django.contrib.admin',

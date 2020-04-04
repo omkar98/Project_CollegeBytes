@@ -44,7 +44,7 @@ class PostDetailView(DetailView):
 def newEmploymentPost(request):
     if request.method == 'POST':
         form = request.POST.dict()
-        print(form)
+        # print(form)
         company_logo = 'logo '+form.get("company_name")
         # print(company_logo)
         print(form.get("last_date"))
