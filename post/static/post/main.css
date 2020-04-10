@@ -78,3 +78,11 @@ body {
 .about_author{
   background: #dcdcdc;
 }
+.experience-post-list:hover{
+  border-left: 3px solid #ffcb07;
+  padding: 3px;
+}
+
+main.container.post-lists {
+    min-height: 40em;
+}

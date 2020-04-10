@@ -1,0 +1,51 @@
+{% extends "post/base.html" %}
+{% block content %}
+<main role="main" class="container post-lists">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="container-fluid pt-4 pb-3">
+        <h3>Browse students experiences</h3><hr>
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{message |safe}}
+          </div>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% for post in object_list%}
+  <div class="row experience-post-list flex-2">
+    <div class="col-9">
+      <div class="title"><a href="#">
+        <h4>{{post.experience_title}}</h4>
+        <span>By: {{post.author.user_name}} on {{post.experience_date_posted|date:'d-M-y'}}</span>
+      </a></div>
+    </div>
+    <div class="col-3" style="text-align:center; ">
+      <p style="text-align: center; border-bottom: 1px solid #E5E5E5">Result</p>
+      {% if post.result_field == 1 %}
+        <h6><i class="fa fa-circle" style="color:green" aria-hidden="true"></i>
+        <b>{{post.result_type.0.1}}</b></h6>
+      {%endif%}
+      {% if post.result_field == 2 %}
+        <h6><i class="fa fa-circle" style="color:red" aria-hidden="true"></i>
+        <b>{{post.result_type.1.1}}</b></h6>
+      {%endif%}
+      {% if post.result_field == 3 %}
+        <h6><i class="fa fa-circle" style="color:yellow" aria-hidden="true"></i>
+        <b>{{post.result_type.2.1}}</b></h6>
+      {%endif%}
+      {% if post.result_field == 4 %}
+        <h6><i class="fa fa-circle" style="color:blue" aria-hidden="true"></i>
+        <b>{{post.result_type.3.1}}</b></h6>
+      {%endif%}
+    </div>
+  </div><hr>
+  {%endfor%}
+</main>
+
+{% endblock content %}

@@ -5,17 +5,22 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 
+class Subscriber(models.Model):
+    user_name = models.CharField(max_length=100, null=False)
+    user_email = models.CharField(max_length=100, null=False)
+    user_about = models.TextField(null=True)
+    created_on = models.DateTimeField(default=timezone.now)
+
 class Organizer(models.Model):
     organization_name = models.CharField(max_length=100)
     organizer_logo_link = models.TextField()
     status_type = [(1, 'APPROVE'), (2, 'KEEP AS DRAFT'), (3, 'REJECT')]
     status = models.IntegerField(choices=status_type, default=2)
+    created_on = models.DateTimeField(default=timezone.now)
 
 class Experience(models.Model):
-    author_name = models.CharField(max_length=100, default="Admin", null=False)
-    author_email = models.CharField(max_length=100, null=False)
-    author_about = models.TextField(null=False)
-    result_type = [(1, 'Accepted'),(2, 'Rejected'),(3, 'Not Declared Yet'),(4, 'None of these')]
+    author = models.ForeignKey(Subscriber, on_delete=models.CASCADE)
+    result_type = [(1, 'Selected'),(2, 'Not Selected'),(3, 'Yet to be declared'),(4, 'None of these')]
     result_field = models.IntegerField(choices=result_type, null=True)
     experience_result_more = models.CharField(max_length=100, null=True)
     experience_type = [(1, 'JOB INTERVIEW EXPERIENCE'),(2, 'INTERNSHIP EXPERIENCE'),(3, 'HACKATHON EXPERIENCE'),(4, 'OTHER EXPERIENCE')]

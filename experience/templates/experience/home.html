@@ -1,6 +1,6 @@
 {% extends "post/base.html" %}
 {% block content %}
-<main role="main" class="container ">
+<main role="main" class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="container-fluid pt-4">
@@ -14,13 +14,26 @@
           {% endfor %}
         </ul>
         {% endif %}
-        <div class="row">
-          <div class="col-md-12 text-center">
-             hey!
-            </div>
-          </div>
       </div>
     </div>
+  </div>
+  <div class="row">
+    <table class="table table-lg">
+      <thead>
+        <th>Sr. No</th>
+        <th>Company/Industry</th>
+        <th>Total</th>
+      </thead>
+      <tbody>
+        {% for each_company in posts%}
+        <tr>
+          <td scope="col">{{forloop.counter}}</td>
+          <td scope="col"><b><a href="{% url 'company-experiences' each_company.id %}">{{each_company.name}}</a></b></td>
+          <td scope="col">{{each_company.count}}</td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
   </div>
 </main>
 
